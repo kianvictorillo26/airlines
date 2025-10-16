@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, sans-serif, "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; ;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #0369a1;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.home{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.img {
+  width: 190px;          /* adjust logo size */
+  margin-top: -70px;     /* moves logo upward */
+  margin-bottom: 10px;   /* reduce space below logo */
+}
+.s-ctn{
+    margin-top: -50px;
+}
+section {
+  display: none;
+  padding: 20px;
+  background: white;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section.active {
+  display: block;
+}
+
+button {
+  background: #0284c7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+button:hover {
+  background: #0369a1;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #0369a1;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
+}
+
+.progress-step .circle {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #94a3b8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  background: #94a3b8;
+  margin: 0 10px;
+  margin-bottom: 50px;
+}
+
+.progress-step.active .circle {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: white;
+}
+
+.progress-step.active,
+.progress-step.completed {
+  color: #0284c7;
+}
+
+.progress-step.completed .circle {
+  background: #0ea5e9;
+  border-color: #0ea5e9;
+  color: white;
+}
+
+.progress-step.completed + .line {
+  background: #0284c7;
+}
+/* === PROGRESS BAR VISIBILITY === */
+#progressContainer {
+  display: none; /* Hidden by default */
+  margin-top: 20px;
+}
+
+/* When active (after clicking Book a Flight) */
+#progressContainer.active {
+  display: flex; /* Show horizontally */
+  justify-content: center;
+  align-items: center;
+}
