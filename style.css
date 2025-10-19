@@ -6,188 +6,89 @@ body {
 }
 
 header {
-  background: #0369a1;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+  background: #0369a1; color: white;text-align: center;padding: 1rem;
 }
-
 .home{
-    text-align: center;
-    margin-top: 50px;
+    text-align: center;margin-top: 50px;
 }
-
 .img {
-  width: 190px;          /* adjust logo size */
-  margin-top: -70px;     /* moves logo upward */
-  margin-bottom: 10px;   /* reduce space below logo */
+  width: 190px;margin-top: -70px;margin-bottom: 10px;   
 }
 .s-ctn{
     margin-top: -50px;
 }
 section {
-  display: none;
-  padding: 20px;
-  background: white;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: none;padding: 20px;background: white;margin: 20px auto;width: 90%;max-width: 600px;border-radius: 10px;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 section.active {
   display: block;
 }
-
 button {
-  background: #0284c7;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 18px;
+  background: #0284c7;color: white;border: none;padding: 10px 15px;border-radius: 5px;cursor: pointer;margin-top: 20px;font-size: 18px;
 }
-
 button:hover {
   background: #0369a1;
 }
-
 input,
 select {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 100%;padding: 8px;margin: 5px 0 10px;border: 1px solid #ccc;border-radius: 5px;
 }
-
 h2 {
   color: #0369a1;
 }
-
-/* Progress Bar */
 .progress-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  display: flex;justify-content: center;align-items: center;margin-top: 20px;margin-bottom: 30px;
 }
-
 .progress-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #94a3b8;
-  font-size: 14px;
-  text-align: center;
+  display: flex;flex-direction: column;align-items: center;color: #94a3b8;font-size: 14px;text-align: center;
 }
-
 .progress-step .circle {
-  width: 35px;
-  height: 35px;
-  border: 2px solid #94a3b8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5px;
-  font-weight: bold;
+  width: 35px;height: 35px;border: 2px solid #94a3b8;border-radius: 50%;display: flex;align-items: center;justify-content: center;margin-bottom: 5px;font-weight: bold;
 }
 
 .line {
-  width: 100px;
-  height: 2px;
-  background: #94a3b8;
-  margin: 0 10px;
-  margin-bottom: 50px;
+  width: 100px;height: 2px;background: #94a3b8;margin: 0 10px;margin-bottom: 50px;
 }
 
 .progress-step.active .circle {
-  background: #0284c7;
-  border-color: #0284c7;
-  color: white;
+  background: #0284c7;border-color: #0284c7;color: white;
 }
 
 .progress-step.active,
 .progress-step.completed {
   color: #0284c7;
 }
-
 .progress-step.completed .circle {
-  background: #0ea5e9;
-  border-color: #0ea5e9;
-  color: white;
+  background: #0ea5e9;border-color: #0ea5e9;color: white;
 }
-
 .progress-step.completed + .line {
   background: #0284c7;
 }
-/* === PROGRESS BAR VISIBILITY === */
 #progressContainer {
-  display: none; /* Hidden by default */
-  margin-top: 20px;
+  display: none; margin-top: 20px;
 }
-
-/* When active (after clicking Book a Flight) */
 #progressContainer.active {
-  display: flex; /* Show horizontally */
-  justify-content: center;
-  align-items: center;
+  display: flex; justify-content: center;align-items: center;
 }
-/* === FLIGHT LIST === */
 #flightList {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  display: flex;flex-direction: column;gap: 15px;margin-top: 20px;
 }
 
-/* Each Flight Box */
 .flight-card {
-  background-color: #ffffff;
-  border: 1px solid #dce3ea;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
- 
+  background-color: #ffffff;border: 1px solid #dce3ea;border-radius: 12px;box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);padding: 20px;display: flex;justify-content: space-between;align-items: flex-start;
 }
-
 .flight-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
 }
-
-/* Flight Info Labels */
 .flight-info p {
-  margin: 6px 0;
-  font-size: 15px;
-  color: #333;
+  margin: 6px 0;font-size: 15px;color: #333;
 }
-
 .flight-info p strong {
   color: #0369a1;
 }
-
-/* Select Button */
 .select-btn {
-  background-color: #0284c7;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-size: 15px;
-  align-self: center;
-  transition: background-color 0.3s ease;
+  background-color: #0284c7;color: white;border: none;border-radius: 6px;padding: 10px 16px;cursor: pointer;font-size: 15px;align-self: center;transition: background-color 0.3s ease;
 }
-
 .select-btn:hover {
   background-color: #0369a1;
 }

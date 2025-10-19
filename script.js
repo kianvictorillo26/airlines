@@ -1,6 +1,5 @@
-// ===== SCRIPT.JS =====
 
-// Select key DOM elements
+// MGA elements NI SA HTML PARA MO GANA
 const homeSection = document.getElementById('home');
 const bookingSection = document.getElementById('booking');
 const flightsSection = document.getElementById('flights');
@@ -17,26 +16,26 @@ const passengerForm = document.getElementById('passengerForm');
 const summaryDetails = document.getElementById('summaryDetails');
 const bookNowBtn = document.getElementById('bookNow');
 
-// Progress steps
+// PARA NI SA PROGRESS DAPITA PARA MA LOCATE UG UNSA NA STAGE SA BOOKING PARA MA TRACK AND STEPS
 const step1 = document.getElementById('step1');
 const step2 = document.getElementById('step2');
 const step3 = document.getElementById('step3');
 
-// ===== STEP 1: Book Flight Button =====
+// PARA SA BOOK FLIGHT NI NA BUTTON
 bookFlightBtn.addEventListener('click', () => {
   homeSection.classList.remove('active');
   bookingSection.classList.add('active');
 
-  // Show progress bar
+  // RELATED RA GIHAPON NI SA PROGRESS BAR 
   progressContainer.classList.add('active');
 
-  // Activate Step 1
+  // ACTIVATION NI
   step1.classList.add('active');
   step2.classList.remove('active');
   step3.classList.remove('active');
 });
 
-// ===== SHOW RETURN DATE FIELD =====
+// PARA SA DATE NI REURN DATE KUNG ROUND TRIP AND PILION SA PASSENGER
 const flightTypeSelect = document.getElementById('flightType');
 const returnDateContainer = document.getElementById('returnDateContainer');
 flightTypeSelect.addEventListener('change', () => {
@@ -47,7 +46,7 @@ flightTypeSelect.addEventListener('change', () => {
   }
 });
 
-// ===== STEP 2: Handle Booking Form Submission =====
+// SUBMITT RA NI SA BOOKING FORM PARA SA MGA FLIGHTS
 bookingForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -58,7 +57,7 @@ bookingForm.addEventListener('submit', (e) => {
   const returnDate = document.getElementById('returnDate').value;
   const passengers = parseInt(document.getElementById('passengers').value);
 
-  // Sample flights (with full details)
+  // ARRAY NI SA MGA FLIGHT NAKA STATIC RA NI NA DATA
   const flights = [
     {
       flightNo: '3B 1001',
@@ -95,13 +94,13 @@ bookingForm.addEventListener('submit', (e) => {
     }
   ];
 
-  // Clear and display flight list
+  
   flightList.innerHTML = '';
   flights.forEach((flight) => {
     const card = document.createElement('div');
     card.classList.add('flight-card');
 
-    // Flight details
+    // FLIGHT DETAILS NI CONNECT RANI SIYAS HTML 
     const infoDiv = document.createElement('div');
     infoDiv.classList.add('flight-info');
 
@@ -128,20 +127,21 @@ bookingForm.addEventListener('submit', (e) => {
     flightList.appendChild(card);
   });
 
-  // Move to flight section
+  
   bookingSection.classList.remove('active');
   flightsSection.classList.add('active');
   step1.classList.add('active');
   step2.classList.add('active');
 });
 
-// ===== GO BACK TO BOOKING =====
+
 backToBookingBtn.addEventListener('click', () => {
   flightsSection.classList.remove('active');
   bookingSection.classList.add('active');
 });
 
-// ===== STEP 3: Passenger Form =====
+
+// MOSTLY KAY MGA VALIDATION RANI SA PASSENFGER FORM UG ABOUT RAS PASSENGER FORM
 function showPassengerForm(selectedFlight, passengers, from, to) {
   flightsSection.classList.remove('active');
   passengerSection.classList.add('active');
@@ -169,6 +169,7 @@ function showPassengerForm(selectedFlight, passengers, from, to) {
     ageInput.type = 'number';
     ageInput.id = `age${i}`;
     ageInput.required = true;
+    ageInput.min = 0;
 
     passengerDiv.append(title, nameLabel, nameInput, ageLabel, ageInput);
     passengerForm.appendChild(passengerDiv);
@@ -180,13 +181,36 @@ function showPassengerForm(selectedFlight, passengers, from, to) {
   nextBtn.textContent = 'Next';
   passengerForm.appendChild(nextBtn);
 
+  // VALIDATION NANI
   nextBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    showSummary(selectedFlight, passengers, from, to);
+
+    let isValid = true;
+    for (let i = 1; i <= passengers; i++) {
+      const name = document.getElementById(`name${i}`).value.trim();
+      const age = document.getElementById(`age${i}`).value.trim();
+
+      if (name === '' || age === '') {
+        isValid = false;
+        break;
+      }
+    }
+
+    if (!isValid) {
+      Swal.fire({
+        title: 'Incomplete Information!',
+        text: 'Please fill out all passenger names and ages before proceeding.',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
+    } else {
+      showSummary(selectedFlight, passengers, from, to);
+    }
   });
 }
 
-// ===== STEP 4: Summary =====
+
+// MOA NI SA RESIBO OR SA KATUNG SUMMARY TONG KINALASAN NA
 function showSummary(selectedFlight, passengers, from, to) {
   passengerSection.classList.remove('active');
   summarySection.classList.add('active');
@@ -213,7 +237,7 @@ function showSummary(selectedFlight, passengers, from, to) {
     <ul>${passengerDetails}</ul>
   `;
 
-  // Booking confirmation alert
+  // KATU NING SA SWEET ALERT AKONG GI GAMIT GI COPY RANI NAKO SA SWEET ALERT 
   bookNowBtn.addEventListener('click', () => {
     Swal.fire({
       title: 'Processing...',
@@ -232,15 +256,16 @@ function showSummary(selectedFlight, passengers, from, to) {
       summarySection.classList.remove('active');
       homeSection.classList.add('active');
 
-      // Reset progress
+      
       step1.classList.remove('active');
       step2.classList.remove('active');
       step3.classList.remove('active');
 
-      // Reset forms
+    
       bookingForm.reset();
       passengerForm.innerHTML = '';
       summaryDetails.innerHTML = '';
     });
   });
 }
+// PALIHUG KO STUDY ANI TANAN GAW KAY MEDYO LISOD NI SALAMAT UG GOODLUCK!!!
