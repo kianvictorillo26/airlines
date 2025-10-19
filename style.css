@@ -138,3 +138,56 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+/* === FLIGHT LIST === */
+#flightList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Each Flight Box */
+.flight-card {
+  background-color: #ffffff;
+  border: 1px solid #dce3ea;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+ 
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Flight Info Labels */
+.flight-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.flight-info p strong {
+  color: #0369a1;
+}
+
+/* Select Button */
+.select-btn {
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.select-btn:hover {
+  background-color: #0369a1;
+}
